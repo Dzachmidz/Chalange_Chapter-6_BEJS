@@ -1,4 +1,4 @@
-name: Challange Chapter 6
+name: Challange Chapter 6 (Dev)
 
 on:
   push:
@@ -32,4 +32,4 @@ jobs:
       - name: Deploy to Railway
         run: railway up --service ${{ secrets.RAILWAY_SERVICE_ID }}
         env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+          RAILWAY_TOKEN: ${{ secrets.RAILWAY_DEV_TOKEN }}

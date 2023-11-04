@@ -9,3 +9,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Posts {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String?
+  image       Images?
+}
+
+model Images {
+  id       Int    @id @default(autoincrement())
+  post_id  Int    @unique
+  post     Posts  @relation(fields: [post_id], references: [id])
+  url      String 
+  image_id String @unique
+}

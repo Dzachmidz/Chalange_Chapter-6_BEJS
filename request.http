@@ -1,0 +1,28 @@
+### POST UPLOAD
+POST http://localhost:3000/api/v1/posts
+Content-Type: application/json
+
+{
+  "title": "ini title",
+  "description": "ini description",
+  "image": "https://ik.imagekit.io/dzachmidz/challange/images/1699083406628_ZpT8TIL7n.png"
+}
+
+
+### GET BY ID
+GET http://localhost:3000/api/v1/posts/5
+
+### GET ALL
+GET http://localhost:3000/api/v1/posts
+
+### UPDATE ENDPOINT
+PUT http://localhost:3000/api/v1/posts/5
+Content-Type: application/json
+
+{
+  "title": "ini title update",
+  "description": "ini description update"
+}
+
+### DELETE
+DELETE http://localhost:3000/api/v1/posts/2
