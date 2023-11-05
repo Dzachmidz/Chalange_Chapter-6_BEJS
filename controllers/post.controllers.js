@@ -37,7 +37,7 @@ module.exports = {
         },
       });
   
-      res.status(201).json({ success: true, message: 'Post created', data: post });
+      res.status(201).json({ success: true, message: 'Post Successfull Created', data: post });
     } catch (error) {
       next(error);
     }
@@ -51,7 +51,7 @@ module.exports = {
         },
       });
   
-      res.status(200).json({ success: true, message: 'Posts found', data: posts });
+      res.status(200).json({ success: true, message: 'Posts Found', data: posts });
     } catch (error) {
       next(error);
     }
@@ -70,9 +70,9 @@ module.exports = {
         },
       });
   
-      if (!post) return res.status(404).json({ success: false, message: 'Post not found', data: null });
+      if (!post) return res.status(404).json({ success: false, message: 'Post Not Found', data: null });
   
-      res.status(200).json({ success: true, message: 'Post found', data: post });
+      res.status(200).json({ success: true, message: 'Post Found', data: post });
     } catch (error) {
       next(error);
     }
@@ -90,7 +90,7 @@ module.exports = {
         },
       });
   
-      if (!existPost) return res.status(404).json({ success: false, message: 'Post not found', data: null });
+      if (!existPost) return res.status(404).json({ success: false, message: 'Post Not Found', data: null });
 
   
       // Update data post
@@ -104,7 +104,7 @@ module.exports = {
         },
       });
   
-      res.status(200).json({ success: true, message: 'Post updated', data: updatedPost });
+      res.status(200).json({ success: true, message: 'Post Successfull Updated', data: updatedPost });
     } catch (error) {
       next(error);
     }
@@ -124,7 +124,7 @@ module.exports = {
         },
       });
   
-      if (!existPost) return res.status(404).json({ success: false, message: 'Post not found', data: null });
+      if (!existPost) return res.status(404).json({ success: false, message: 'Post Not Found', data: null });
   
       await imagekit.deleteFile(existPost.image.image_id);
   
@@ -140,7 +140,7 @@ module.exports = {
         },
       });
   
-      res.status(200).json({ success: true, message: 'Post deleted', data: post });
+      res.status(200).json({ success: true, message: 'Post Successfull Deleted', data: post });
     } catch (error) {
       next(error);
     }
