@@ -17,7 +17,7 @@ Sentry.init({
   // Performance Monitoring
   tracesSampleRate: 1.0,
   environment: ENV
-});
+}); 
 
 app.use(morgan("dev"));
 app.use(express.json());
