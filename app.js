@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const Sentry = require("@sentry/node");
-const { PORT = 3000, SENTRY_DSN, RAILWAY_ENVIRONMENT_NAME } = process.env;
+const { PORT = 3000, SENTRY_DSN, ENV } = process.env;
 
 Sentry.init({
   dsn: SENTRY_DSN,
@@ -15,7 +15,7 @@ Sentry.init({
   ],
   // Performance Monitoring
   tracesSampleRate: 1.0,
-  environment: RAILWAY_ENVIRONMENT_NAME,
+  environment: ENV,
 });
 
 app.use(morgan("dev"));
@@ -28,14 +28,11 @@ app.use(Sentry.Handlers.requestHandler());
 app.use(Sentry.Handlers.tracingHandler());
 
 app.get("/", (req, res) => {
-  console.log(name);
   return res.json({
     status: true,
     message: "Hello World!",
     error: null,
-    data: {
-      env: RAILWAY_ENVIRONMENT_NAME,
-    },
+    data: null,
   });
 });
 const Router = require("./routes/post.router");
@@ -60,9 +57,7 @@ app.use((err, req, res, next) => {
     status: false,
     message: "Internal Server Error",
     error: err.message,
-    data: {
-      env: RAILWAY_ENVIRONMENT_NAME,
-    },
+    data: null,
   });
 });
 

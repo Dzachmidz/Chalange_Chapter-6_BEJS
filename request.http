@@ -14,7 +14,7 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/posts/5
 
 ### GET ALL
-GET http://localhost:3000/api/v1/posts
+GET http://localhost:3000/api/v1/posts?postId=101
 
 ### UPDATE ENDPOINT
 PUT http://localhost:3000/api/v1/posts/5
